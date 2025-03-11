@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --primary-color: #ef8d21;
+  --white: #ffffff;
+  --max-width: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--white);
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+  color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 15px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn__primary {
+  background: var(--primary-color);
+  border-radius: 40px;
+  color: #ffffff;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+header .nav__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  width: 100%;
+  gap: 20px;
+}
+
+header .nav__header .nav__links {
+  display: flex;
+  justify-content: start;
+  gap: 50px;
+  align-items: center;
+}
+
+header .nav__header .nav__links li {
+  transition: all 0.5s;
+}
+
+header .nav__header .nav__links li:hover {
+  transition: all 0.5s;
+}
+
+header .nav__header .nav__links .active {
+  position: relative;
+}
+
+header .nav__header .nav__links .active a {
+  font-weight: 600;
+}
+
+header .nav__header .nav__links .active::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 2px;
+  background: var(--primary-color);
+  top: 100%;
+  left: 0;
+}
+
+header .nav__header .nav__btns {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+header .section__container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex: auto;
+  gap: 20px;
+}
+
+/* header .section__container  .header__content{
+  width: 70%;
+} */
+
+header .section__container .section__right {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-items: center;
+  position: relative;
+}
+
+header .section__container .section__right .section__image {
+  position: relative;
+  width: 581px;
+  height: 582px;
+  background: url(/images/vector.png) no-repeat;
+  background-size: cover;
+
+}
+header .section__container .section__right .section__cost {
+  position: absolute;
+}
+
+header .section__container .section__right .section__image .character {
+  position: absolute;
+  
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+}
+
+/* 
+header .section__container  .header__image img{
+  width: 100%;
+
+} */
+
+.header__leaf1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.header__leaf2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+}
