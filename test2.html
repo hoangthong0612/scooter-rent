@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scooter Rental</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      :root {
+        --primary-color: #ef8d21;
+        --white: #ffffff;
+        --max-width: 80%;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #fffcf9;
+        font-size: 16px;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: auto;
+      }
+
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0;
+        align-items: center;
+      }
+
+      .navbar__links {
+        display: flex;
+        gap: 50px;
+      }
+
+      .navbar__item a {
+        text-decoration: none;
+        color: black;
+        transition: color 0.3s;
+      }
+
+      .navbar__item--active a {
+        font-weight: 600;
+        position: relative;
+      }
+
+      .navbar__item--active a::after {
+        content: "";
+        position: absolute;
+        width: 90%;
+        height: 2px;
+        background: var(--primary-color);
+        top: 100%;
+        left: 0;
+      }
+
+      .navbar__buttons {
+        display: flex;
+        gap: 20px;
+      }
+
+      /* Buttons */
+      .button {
+        border: none;
+        padding: 15px;
+        background: transparent;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .button--primary {
+        background: var(--primary-color);
+        border-radius: 40px;
+        color: var(--white);
+      }
+
+      /* Hero Section */
+      .hero {
+        display: flex;
+        align-items: center;
+        gap: 10%;
+        padding-top: 2rem;
+      }
+
+      .hero__content {
+        flex: 1;
+      }
+
+      .hero__title {
+        font-size: 2rem;
+        font-weight: normal;
+      }
+
+      .hero__subtitle {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+
+      .hero__subtitle span {
+        color: var(--primary-color);
+      }
+
+      .hero__form {
+        display: flex;
+        gap: 10px;
+        padding: 15px;
+        background: var(--white);
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 50px;
+        margin-top: 15px;
+      }
+
+      .hero__form input,
+      .hero__form button {
+        flex: 1;
+        background: transparent;
+        border: none;
+        padding: 5px 10px;
+        outline: none;
+      }
+
+      .hero__form input:not(:last-child) {
+        border-right: 1px solid lightgray;
+      }
+
+      /* Hero Image */
+      .hero__image {
+        position: relative;
+        width: 50vh;
+      }
+
+      .hero__image img {
+        width: 100%;
+      }
+
+      .hero__price {
+        position: absolute;
+        top: 10%;
+        right: -40%;
+        font-size: 20px;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar container">
+      <a href="#" class="navbar__logo"
+        ><img src="/images/logo.png" alt="Logo"
+      /></a>
+      <ul class="navbar__links">
+        <li class="navbar__item navbar__item--active"><a href="#">Home</a></li>
+        <li class="navbar__item"><a href="#">Service</a></li>
+        <li class="navbar__item"><a href="#">Contact Us</a></li>
+      </ul>
+      <div class="navbar__buttons">
+        <button class="button">Login</button>
+        <button class="button button--primary">Book Scooter</button>
+      </div>
+    </nav>
+
+    <section class="hero container">
+      <div class="hero__content">
+        <h1 class="hero__title">Fair price ride</h1>
+        <h2 class="hero__subtitle">Rent our <span>Scooter</span></h2>
+        <p class="hero__description">
+          Lorem Ipsum has been the industry's standard dummy text ever since the
+          1500s.
+        </p>
+        <form class="hero__form">
+          <input type="text" placeholder="Location" />
+          <input type="text" placeholder="Pickup Date" />
+          <input type="text" placeholder="Kilometers" />
+          <button class="button button--primary">Book Scooter</button>
+        </form>
+      </div>
+
+      <div class="hero__image">
+        <img src="/images/fun-cartoon-casual-character.png" alt="Scooter" />
+        <div class="hero__price">
+          <h3>Starting From</h3>
+          <p>$40</p>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
