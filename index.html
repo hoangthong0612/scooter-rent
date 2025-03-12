@@ -7,66 +7,63 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <!-- https://www.figma.com/community/file/995692028581559654/scooter-rent -->
+
     <header>
-      <nav class="nav__header container">
-        <div class="nav__logo">
-          <a href="#"><img src="/images/logo.png" alt="Logo" /></a>
-        </div>
-        <ul class="nav__links">
-          <li class="active"><a href="">Home</a></li>
-          <li><a href="">Service</a></li>
-          <li><a href="">Contact Us</a></li>
+      <nav class="navbar container">
+        <a href="#" class="navbar__logo">
+          <img src="/images/logo.png" alt="Logo" />
+        </a>
+        <ul class="navbar__links">
+          <li class="navbar__item navbar__item--active">
+            <a href="#">Home</a>
+          </li>
+          <li class="navbar__item"><a href="#">Service</a></li>
+          <li class="navbar__item"><a href="#">Contact Us</a></li>
         </ul>
-        <div class="nav__btns">
-          <button class="btn">Login</button>
-          <button class="btn btn__primary">Book Scooter</button>
+        <div class="navbar__buttons">
+          <button class="button">Login</button>
+          <button class="button button--primary">Book Scooter</button>
         </div>
       </nav>
-      <div class="container section__container">
-        <div class="header__content">
-          <h1 class="section__title">Fair price ride</h1>
-          <h2 class="section__subheader">Rent our <span>Scooter</span></h2>
-          <p class="section__description">
-            Lorem Ipsum has been the industry's standard dummy text ever since
-            the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book.
-          </p>
-          <div class="header_links">
-            <form action="">
-              <input class="form__input" type="text" placeholder="Location">
-              <input class="form__input" type="text" placeholder="Pickup Date">
-              <input class="form__input" type="text" placeholder="Kilometers">
-              <button>Book Scooter</button>
-            </form>
-            
-          </div>
-        </div>
-        <div class="section__image">
-          <div class="section__shape"></div>
-          <div class="section__character">
-            <img
-              src="/images/fun-cartoon-casual-character.png"
-              alt=""
-              class="character"
-            />
-            <div class="character__shape"></div>
-            <div class="section__cost">
-              <h3>Starting From</h3>
-              <p>$40</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="header__leaf1">
-        <img src="/images/leaf1.png" alt="" />
-      </div>
-      <div class="header__leaf2">
-        <img src="/images/leaf2.png" alt="" />
-      </div>
     </header>
 
-    <script src="script.js"></script>
+    <section class="hero container">
+      <div class="hero__content">
+        <h1 class="hero__title animate-left-to-right">Fair price ride</h1>
+        <h2 class="hero__subtitle animate-left-to-right">
+          Rent our <span>Scooter</span>
+        </h2>
+        <p class="hero__description animate-top-to-bottom">
+          Lorem Ipsum has been the industry's standard dummy text ever since the
+          1500s, when an unknown printer took a galley of type and scrambled it
+          to make a type specimen book.
+        </p>
+        <form class="hero__form">
+          <input type="text" placeholder="Location" />
+          <input type="text" placeholder="Pickup Date" />
+          <input type="text" placeholder="Kilometers" />
+          <button class="button">Book Scooter</button>
+        </form>
+      </div>
+
+      <div class="hero__image">
+        <!-- <div class="hero__shape"></div> -->
+        <div class="hero__character animate-left-to-right">
+          <img
+            src="/images/fun-cartoon-casual-character.png"
+            class="animate-top-to-bottom"
+            alt="Scooter"
+          />
+          <div class="hero__shape"></div>
+          <div class="hero__price">
+            <h3>Starting From</h3>
+            <p>$40</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="overlay">
+      <img src="/images/leaf2.png" alt="" />
+    </div>
   </body>
 </html>
