@@ -11,6 +11,7 @@
         --primary-color: #ef8d21;
         --white: #ffffff;
         --max-width: 80%;
+        --bg-color: #fffcf9;
       }
 
       * {
@@ -18,11 +19,33 @@
         padding: 0;
         box-sizing: border-box;
       }
-
-      body {
+      html {
         font-family: "Poppins", sans-serif;
-        background: #fffcf9;
+        background: var(--bg-color);
         font-size: 16px;
+      }
+      body {
+        background: url("/images/leaf1.png") no-repeat;
+        height: 100vh;
+        width: 100vw;
+        background-position: left bottom;
+        display: flex;
+        flex-direction: column;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        margin: 0;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
       }
 
       .container {
@@ -30,17 +53,24 @@
         margin: auto;
       }
 
+      header {
+        width: 100%;
+        position: fixed;
+        padding: 1rem 0;
+        z-index: 9;
+      }
+
       /* Navbar */
       .navbar {
         display: flex;
         justify-content: space-between;
-        padding: 1rem 0;
+        height: 100%;
         align-items: center;
-        position: fixed;
-        height: 120px;
-
       }
-
+      .navbar__logo,
+      .navbar__logo img {
+        height: 100%;
+      }
       .navbar__links {
         display: flex;
         gap: 50px;
@@ -65,6 +95,16 @@
         background: var(--primary-color);
         top: 100%;
         left: 0;
+        animation: animate_active 1s linear forwards;
+      }
+
+      @keyframes animate_active {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 90%;
+        }
       }
 
       .navbar__buttons {
@@ -82,7 +122,7 @@
       }
 
       .button--primary {
-        background: var(--primary-color);
+        background: var(--primary-color) !important;
         border-radius: 40px;
         color: var(--white);
       }
@@ -92,14 +132,15 @@
         display: flex;
         align-items: center;
         gap: 10%;
-        height: 100vh;
-        width: 100vw;
+        height: 100%;
+        width: 100%;
         position: relative;
+        /* flex: 1; */
+        /* overflow: hidden; */
       }
 
       .hero__content {
         flex: 1;
-        
       }
 
       .hero__title {
@@ -121,9 +162,10 @@
         gap: 10px;
         padding: 15px;
         background: var(--white);
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 50px;
         margin-top: 15px;
+        width: fit-content;
       }
 
       .hero__form input,
@@ -131,8 +173,15 @@
         flex: 1;
         background: transparent;
         border: none;
-        padding: 5px 10px;
+        padding: 10px 15px;
         outline: none;
+        width: 25%;
+      }
+
+      .hero__form button {
+        border: 1px solid black;
+        border-radius: 50px;
+        box-shadow: 0px 5px 2px #ef8d21;
       }
 
       .hero__form input {
@@ -145,26 +194,44 @@
       /* Hero Image */
       .hero__image {
         position: relative;
-        width: 50vh;
-        height: 100%;
-        margin-top: 125px;
+        width: 500px;
+        height: 80%;
+        background: url(/images/vector.png) no-repeat bottom;
+        background-size: contain;
+      }
+
+      .hero__character {
+        
+        width: 60%;
+        height: 80%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        
+        bottom: 10%;
       }
 
       .hero__shape {
-        background: url(/images/vector.png) no-repeat bottom;
-        width: 100%;
-        height: 100%;
+        width: 40%;
+        aspect-ratio: 1/1;
+        border: 10px solid var(--primary-color);
+        opacity: 0.2;
+        border-radius: 50%;
+        left: 5%;
         position: absolute;
-        background-size: contain ;
-        z-index: 0;
-
+        z-index: 1;
       }
 
       .hero__image img {
-        width: 100%;
-        z-index: 1;
+        z-index: 2;
         position: absolute;
-        max-height: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        bottom: 0;
+        display: block;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
       .hero__price {
@@ -173,54 +240,99 @@
         right: -40%;
         font-size: 20px;
         font-weight: bold;
+      }
+
+      .hero__price p {
         color: var(--primary-color);
+        font-size: 3rem;
+      }
+
+      .overlay {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+
+      .animate-left-to-right {
+        animation: slideLeftToRight 1s ease-in-out forwards;
+      }
+      @keyframes slideLeftToRight {
+        from {
+          transform: translateX(-100%) ;
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0) !important;
+          opacity: 1;
+        }
+      }
+
+      .animate-top-to-bottom {
+        animation: slideTopToBottom 1s ease-in-out forwards;
+      }
+      @keyframes slideTopToBottom {
+        from {
+          transform: translateY(-100%) ;
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0) !important;
+          opacity: 1;
+        }
       }
     </style>
   </head>
   <body>
-    <nav class="navbar container">
-      <a href="#" class="navbar__logo">
-        <img src="/images/logo.png" alt="Logo" />
-      </a>
-      <ul class="navbar__links">
-        <li class="navbar__item navbar__item--active"><a href="#">Home</a></li>
-        <li class="navbar__item"><a href="#">Service</a></li>
-        <li class="navbar__item"><a href="#">Contact Us</a></li>
-      </ul>
-      <div class="navbar__buttons">
-        <button class="button">Login</button>
-        <button class="button button--primary">Book Scooter</button>
-      </div>
-    </nav>
+    <header>
+      <nav class="navbar container">
+        <a href="#" class="navbar__logo">
+          <img src="/images/logo.png" alt="Logo" />
+        </a>
+        <ul class="navbar__links">
+          <li class="navbar__item navbar__item--active">
+            <a href="#">Home</a>
+          </li>
+          <li class="navbar__item"><a href="#">Service</a></li>
+          <li class="navbar__item"><a href="#">Contact Us</a></li>
+        </ul>
+        <div class="navbar__buttons">
+          <button class="button">Login</button>
+          <button class="button button--primary">Book Scooter</button>
+        </div>
+      </nav>
+    </header>
 
     <section class="hero container">
       <div class="hero__content">
-        <h1 class="hero__title">Fair price ride</h1>
-        <h2 class="hero__subtitle">Rent our <span>Scooter</span></h2>
-        <p class="hero__description">
+        <h1 class="hero__title animate-left-to-right">Fair price ride</h1>
+        <h2 class="hero__subtitle animate-left-to-right">Rent our <span>Scooter</span></h2>
+        <p class="hero__description animate-top-to-bottom">
           Lorem Ipsum has been the industry's standard dummy text ever since the
-          1500s.
+          1500s, when an unknown printer took a galley of type and scrambled it
+          to make a type specimen book.
         </p>
         <form class="hero__form">
           <input type="text" placeholder="Location" />
           <input type="text" placeholder="Pickup Date" />
           <input type="text" placeholder="Kilometers" />
-          <button class="button button--primary">Book Scooter</button>
+          <button class="button">Book Scooter</button>
         </form>
       </div>
 
       <div class="hero__image">
-        <div class="hero__shape">
-
-        </div>
-        <img src="/images/fun-cartoon-casual-character.png" alt="Scooter" />
-        <div class="hero__price">
-          <h3>Starting From</h3>
-          <p>$40</p>
+        <!-- <div class="hero__shape"></div> -->
+        <div class="hero__character animate-left-to-right" >
+          <img src="/images/fun-cartoon-casual-character.png" class="animate-top-to-bottom" alt="Scooter" />
+          <div class="hero__shape"></div>
+          <div class="hero__price">
+            <h3>Starting From</h3>
+            <p>$40</p>
+          </div>
         </div>
       </div>
     </section>
-
-    <script src="script.js"></script>
+    <div class="overlay">
+      <img src="/images/leaf2.png" alt="" />
+    </div>
   </body>
 </html>
